@@ -19,7 +19,7 @@ private class Test_VoiceCallTriggerHelper {
         vc.CallStartDateTime = callStart;
         vc.CallType = 'Inbound';
         insert vc;
-        vc.OwnerId = [SELECT Id FROM USER WHERE Profile.Name = 'System Administrator' AND ISACTIVE = TRUE AND UserId != :UserInfo.getUserId()][0].Id;
+        vc.OwnerId = [SELECT Id FROM USER WHERE Profile.Name = 'System Administrator' AND ISACTIVE = TRUE AND Id != :UserInfo.getUserId()][0].Id;
         update vc;    
 	}
 
